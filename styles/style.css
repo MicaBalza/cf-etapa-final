@@ -1,0 +1,94 @@
+/* Variables */
+
+:root {
+    --clr-accent: #FF6B6B;
+
+    --clr-white: #FFFFFF;
+    --clr-black: #000000;
+}
+
+/* Global */
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Text */
+
+h1 {
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    line-height: 1.5em;
+}
+
+h2, .h2 {
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.subtitle1 {
+    font-weight: 300;
+    font-size: 2.25rem; 
+}
+
+.subtitle2 {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.text--accent {
+    color: var(--clr-accent)
+}
+
+/* Utility Classes */
+
+.flow-content > * + * {
+    margin: var(--space, 0.875rem) 0 0 0;
+}
+
+.flow-content--negative {
+    --space: -1rem;
+}
+
+/* Hero Section */
+
+.hero {
+    padding-top: 3rem;
+    background: var(--clr-accent);
+}
+
+.hero-header {
+    text-align: center;
+    color: var(--clr-white)
+}
+
+.hero-card {
+    width: 30rem;
+    margin: 0 auto;
+    padding: 3.625rem;
+    background: var(--clr-white);
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 1.875rem;
+}
+
+.hero-card .h2 {
+    color: rgba(0, 0, 0, 0.75)
+}
+
+.hero-card .price {
+    font-weight: 700;
+    font-size: 6.25rem;
+    color: var(--clr-black)
+}
+
