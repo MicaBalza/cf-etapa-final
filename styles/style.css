@@ -13,7 +13,7 @@
     --border-radius: 30px;
 }
 
-/* Global */
+/* Reset and Global */
 /* #region */
 *, *::after, *::before {
     box-sizing: border-box;
@@ -241,21 +241,6 @@ h4, .h4 {
     animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        transform: translate(-50%,-50%) scale(0.95);
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-    }
-    70% {
-        transform: translate(-50%,-50%) scale(1);
-        box-shadow: 0 0 5px 20px rgba(204,169,44, 0);
-    }
-    100% {
-        transform: translate(-50%,-50%) scale(0.95);
-        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-    }
-  }
-
 .hero-card a {
     position: relative;
     z-index: 2;
@@ -264,26 +249,6 @@ h4, .h4 {
 
 .hero-card > a:hover ~ .pill {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-}
-
-@keyframes shake {
-    10%, 90% {
-        background: rgb(var(--clr-white));
-        color: #E55754;
-        transform: translate3d(-1px, 0, 0);
-      }
-      
-      20%, 80% {
-        transform: translate3d(2px, 0, 0);
-      }
-    
-      30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
-      }
-    
-      40%, 60% {
-        transform: translate3d(4px, 0, 0);
-      }
 }
 
 .hero-card img {
@@ -306,7 +271,6 @@ h4, .h4 {
         z-index: 1;
     }
 }
-
 /* #endregion */
 
 /* Main Section */
@@ -377,7 +341,6 @@ h4, .h4 {
     color: var(--clr-accent);
 }
 
-
 @media (min-width: 769px) {
     .features-pills {
         position: absolute;
@@ -401,6 +364,7 @@ h4, .h4 {
 
 /* Teachers Section */
 /* #region */
+
 .teachers {
     position: relative;
     overflow: hidden;
@@ -472,30 +436,27 @@ h4, .h4 {
     transform: translate(-1rem, -4rem);
 }
 
-.main-teacher:nth-of-type(1)::before {
+.main-teacher::before {
     z-index: -2;
     position: absolute;
     content: "";
+    border-radius: 50%;
+    background: radial-gradient(circle,#FF8787 0%,#FF8787 35%,#ffa8a8 35%,#ffa8a8 47%,#ffc9c9 47%,#ffc9c9 60%, #ffe3e3 60%,#ffe3e3 70%);
+}
+
+.main-teacher:nth-of-type(1)::before {
     width: 85%; 
     padding-bottom: 85%;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle,#FF8787 0%,#FF8787 35%,#ffa8a8 35%,#ffa8a8 47%,#ffc9c9 47%,#ffc9c9 60%, #ffe3e3 60%,#ffe3e3 70%);
-}
+    top: 25%;
+    left: 10%;
+    }
+
 .main-teacher:not(:first-child)::before {
-    z-index: -2;
-    position: absolute;
-    content: "";
     width: 130%; 
     padding-bottom:130%;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle,#FF8787 0%,#FF8787 35%,#ffa8a8 35%,#ffa8a8 47%,#ffc9c9 47%,#ffc9c9 60%, #ffe3e3 60%,#ffe3e3 70%);
-}
+    top: -15%;
+    left: -15%;
+    }
 
 .secondary-teachers {
     --maxw: 1250px;
@@ -527,9 +488,18 @@ h4, .h4 {
         margin-left: 3rem;
     }
 
-    
-    
-    
+    .main-teacher h2::after {
+        position: absolute;
+        content: "";
+        width: 90px;
+        height: 90px;
+        top: 0;
+        right: 2rem;
+        background: url("../img/star.svg") no-repeat center;
+        background-color: #F5F5F5;
+        border: 1px solid rgb(var(--clr-black));
+        border-radius: 100px;
+    }
 }
 
 @media (min-width: 1550px) {
@@ -542,5 +512,43 @@ h4, .h4 {
     .main-teacher:nth-of-type(3) > .pill{
         transform: translate(-9.5rem, -4rem);
     }
+}
+/* #endregion */
+
+/* Animations */
+/* #region */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%,-50%) scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        transform: translate(-50%,-50%) scale(1);
+        box-shadow: 0 0 5px 20px rgba(204,169,44, 0);
+    }
+    100% {
+        transform: translate(-50%,-50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+  }
+
+  @keyframes shake {
+    10%, 90% {
+        background: rgb(var(--clr-white));
+        color: #E55754;
+        transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%, 80% {
+        transform: translate3d(2px, 0, 0);
+      }
+    
+      30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+    
+      40%, 60% {
+        transform: translate3d(4px, 0, 0);
+      }
 }
 /* #endregion */
